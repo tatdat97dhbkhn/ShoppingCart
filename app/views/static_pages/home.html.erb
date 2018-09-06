@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row carousel-holder">
+    <div class="col-md-12">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="item active">
+            <%= image_tag "slide4.jpg", class: "slide-image" %>
+          </div>
+          <div class="item">
+            <%= image_tag "slide5.jpg", class: "slide-image" %>
+          </div>
+          <div class="item">
+            <%= image_tag "slide6.jpg", class: "slide-image" %>
+          </div>
+        </div>
+        <%= link_to "#carousel-example-generic",
+          class: "left carousel-control", data: {slide: "prev"} do %>
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        <% end %>
+        <%= link_to "#carousel-example-generic",
+          class: "right carousel-control", data: {slide: "next"} do %>
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div id="content" class="space-top-none">
+    <div class="main-content">
+      <div class="space60">&nbsp;</div>
+      <div class="row"></div>
+    </div>
+  </div>
+</div>

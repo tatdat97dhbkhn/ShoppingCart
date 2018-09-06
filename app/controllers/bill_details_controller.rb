@@ -1,0 +1,2 @@
+class BillDetailsController < ApplicationController
+end

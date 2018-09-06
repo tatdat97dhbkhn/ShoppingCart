@@ -1,0 +1,75 @@
+<div id="header">
+  <div class="header-top">
+    <div class="container">
+      <div class="pull-left auto-width-left">
+        <ul class="top-menu menu-beta l-inline">
+          <li>
+            <i class="glyphicon glyphicon-home"></i>
+             30, 362 Giải Phóng, Hoàng Mai, Hà Nội
+          </li>
+          <li>
+            <i class="glyphicon glyphicon-earphone"></i>
+             0981036562
+          </li>
+        </ul>
+      </div>
+      <div class="pull-right auto-width-right">
+        <ul class="top-details menu-beta l-inline">
+          <li><%= link_to "Đăng ký", "#" %></li>
+          <li><%= link_to "Đăng nhập", "#" %></li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="header-body">
+    <div class="container beta-relative">
+      <div class="pull-left">
+        <%= link_to root_path, id: "logo" do %>
+          <%= image_tag "logo.png", style: "width: 200px" %>
+        <% end %>
+      </div>
+      <div class="pull-right beta-components space-left ov">
+        <div class="space10">&nbsp;</div>
+        <div class="beta-comp">
+          <form role="search" method="get" id="searchform" action="search">
+            <input type="text" placeholder="Nhập từ khóa..." />
+            <button class="fa fa-search" type="submit" ></button>
+          </form>
+        </div>
+        <div class="beta-comp">
+          <div class="cart">
+            <div class="beta-select">
+              <i class="glyphicon glyphicon-shopping-cart"></i>
+               Giỏ hàng
+              <i class="glyphicon glyphicon-menu-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="header-bottom" style="background-color: #0277b8;">
+    <div class="container">
+      <%= link_to "#", class: "visible-xs beta-menu-toggle pull-right" do %>
+        <span class="beta-menu-toggle-text">Menu</span> 
+        <i class="fa fa-bars"></i>
+      <% end %>
+      <div class="visible-xs clearfix"></div>
+      <nav class="main-menu">
+        <ul class="l-inline ov">
+          <li><%= link_to "Trang chủ", "#" %></li>
+          <li><%= link_to "Loại sản phẩm" %>
+            <ul class="sub-menu">
+              <li><%= link_to "ABC", "#" %></li>
+            </ul>
+          </li>
+          <li><%= link_to "Giới thiệu", "#" %></li>
+          <li><%= link_to "Liên hệ", "#" %></li>
+        </ul>
+        <div class="clearfix"></div>
+      </nav>
+    </div>
+  </div>
+</div>
