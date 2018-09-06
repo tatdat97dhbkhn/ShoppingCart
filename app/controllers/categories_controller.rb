@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all.page(params[:page]).per_page 10
+    @categories = Category.used.page(params[:page]).per_page 10
   end
 
   def edit; end
@@ -32,13 +32,8 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    if @category.destroy
-      flash[:success] = "Deleted successfull"
-      redirect_to categories_url
-    else
-      flash[:danger] = "Fails"
-      redirect_to home_path
-    end
+    flash[:warning] = @category.destroy_actions
+    redirect_back fallback_location: root_path
   end
 
   private

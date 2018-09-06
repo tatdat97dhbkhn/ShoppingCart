@@ -29,47 +29,76 @@
           <%= image_tag "logo.png", style: "width: 200px" %>
         <% end %>
       </div>
-      <div class="pull-right beta-components space-left ov">
-        <div class="space10">&nbsp;</div>
-        <div class="beta-comp">
-          <form role="search" method="get" id="searchform" action="search">
-            <input type="text" placeholder="Nhập từ khóa..." />
-            <button class="fa fa-search" type="submit" ></button>
-          </form>
-        </div>
-        <div class="beta-comp">
-          <div class="cart">
-            <div class="beta-select">
-              <i class="glyphicon glyphicon-shopping-cart"></i>
-               Giỏ hàng
-              <i class="glyphicon glyphicon-menu-down"></i>
-            </div>
+      <div class="pull-right">
+        <form class="navbar-form navbar-left" action="/action_page.php">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
           </div>
-        </div>
+          <input type="submit" class="btn btn-default" value="Tìm kiếm"
+            style="margin-bottom: 20px;">
+        </form>
       </div>
       <div class="clearfix"></div>
     </div>
   </div>
-  <div class="header-bottom" style="background-color: #0277b8;">
-    <div class="container">
-      <%= link_to "#", class: "visible-xs beta-menu-toggle pull-right" do %>
-        <span class="beta-menu-toggle-text">Menu</span> 
-        <i class="fa fa-bars"></i>
-      <% end %>
-      <div class="visible-xs clearfix"></div>
-      <nav class="main-menu">
-        <ul class="l-inline ov">
-          <li><%= link_to "Trang chủ", "#" %></li>
-          <li><%= link_to "Loại sản phẩm" %>
-            <ul class="sub-menu">
-              <li><%= link_to "ABC", "#" %></li>
-            </ul>
-          </li>
-          <li><%= link_to "Giới thiệu", "#" %></li>
-          <li><%= link_to "Liên hệ", "#" %></li>
-        </ul>
-        <div class="clearfix"></div>
-      </nav>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to "SHOPPING CART", root_path, class: "navbar-brand" %>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <%= link_to "Home", root_path %>
+        </li>
+        <li class="dropdown">
+          <%= link_to "#", class: "dropdown-toggle",
+            data: {toggle: "dropdown"} do %>
+            Sản phẩm
+            <span class="caret"></span>
+          <% end %>
+          <ul class="dropdown-menu">
+            <% @categories.each do |category| %>
+              <li><%= link_to "#{category.name}", "#" %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <%= link_to "#", class: "dropdown-toggle",
+            data: {toggle: "dropdown"} do %>
+            Quản lí Category
+            <span class="caret"></span>
+          <% end %>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Danh sách thể loại", categories_path %></li>
+            <li><%= link_to "Thêm thể loại", new_category_path %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <%= link_to "#", class: "dropdown-toggle",
+            data: {toggle: "dropdown"} do %>
+            Quản lí Product
+            <span class="caret"></span>
+          <% end %>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Danh sách sản phẩm", products_path %></li>
+            <li><%= link_to "Thêm sản phẩm", new_product_path %></li>
+          </ul>
+        </li>
+        <li><%= link_to "Liên hệ", "#" %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right ">
+        <li class="dropdown">
+          <%= link_to "#", class: "dropdown-toggle",
+            data: {toggle: "dropdown"} do %>
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+            Giỏ hàng ()
+            <span class="caret"></span>
+          <% end %>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
-  </div>
+  </nav>
 </div>

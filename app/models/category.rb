@@ -2,11 +2,18 @@ class Category < ApplicationRecord
   CATEGORY_ATTRS = %w(name description image).freeze
   mount_uploader :image, PictureUploader
 
-  has_many :products, dependent: :destroy
+  has_many :products
 
   validates :name, presence: true,
     length: {maximum: Settings.category.length.max_name}
   validate  :image_size
+
+  scope :used, ->{where deleted: false}
+
+  def destroy_actions
+    update_attributes deleted: true
+    "Remove successfull"
+  end
 
   private
   def image_size

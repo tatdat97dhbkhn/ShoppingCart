@@ -3,7 +3,7 @@ class CreateBills < ActiveRecord::Migration[5.2]
     create_table :bills do |t|
       t.references :customer, foreign_key: true
       t.float :total
-      t.integer :payment
+      t.integer :payment, default: 1
       t.string :note
 
       t.timestamps

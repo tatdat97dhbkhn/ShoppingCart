@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :description
       t.string :image
       t.float :price
+      t.boolean :deleted, default: false
 
       t.timestamps
     end
