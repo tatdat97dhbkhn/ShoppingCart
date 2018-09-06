@@ -1,5 +1,6 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'color.scss';
 
 * {
   margin:0;
@@ -227,7 +228,6 @@ border-radius:50%
 }
 
 h1,.h1 {
-color: white;
 font-size:2.78231em;
 line-height:39.78px;
 font-family:'Open Sans',sans-serif;
@@ -2153,3 +2153,744 @@ border:none;}
 .beta-rotator canvas{width:100%;}
 .beta-rotator {font-family:'Open Sans',sans-serif;}
 .history-slider span {font-family:'Open Sans',sans-serif;}
+
+.form_submit{
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center .row .col-sm-12 {
+  margin-bottom: 50px;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 4.5em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8em;
+  letter-spacing: -1px;
+  color: $gray; 
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1.65em;
+  line-height: 1.7em;
+}
+
+.max {
+  max-width: 1920px;
+}
+
+.header {
+  overflow: hidden;
+  background-color: $darkcyan;
+  padding: 20px 10px;
+  overflow: visible;
+  text-align: center;
+  border-bottom: 1px solid $gray2;
+  margin-bottom: 10px;
+
+  li.dropdown {
+    display: inline-block;
+    overflow: none;
+    min-width: 150px;
+
+    .dropdown-menu {
+      li a {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.header a {
+  float: left;
+  color: $black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.header a:hover {
+  background-color: $white4;
+  color: $black;
+}
+
+.header a.active {
+  background-color: $blue6;
+  color: $white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+
+footer {
+  color: $gray;
+  width: 100%;
+  background-color: $black-light;
+  margin-top: 45px;
+  padding: 5px 10px 0;
+}
+
+footer a {
+  color: $gray;
+}
+
+footer small {
+  float: left;
+}
+
+footer a:hover {
+  color: $gray-black;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+.i18n {
+  cursor: default;
+  font-weight: bold;
+  color: $black;
+
+  a {
+    color: $black-light;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+.margin-top-100 {
+  margin-top: 100px !important;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+.checkbox {
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+.remember {
+  width: auto;
+  margin-left: 0 !important;
+}
+
+.error_explanation {
+  color: $red;
+
+  ul {
+    color: $red;
+    margin: 0 0 30px;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.alert {
+  text-align: center;
+}
+
+.user {
+  padding-bottom: 5px;
+  list-style: none;
+}
+
+.avatar {
+  img {
+    margin-bottom: 10px;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+}
+
+.img-size-large {
+  width: 150px;
+  height: 150px;
+}
+
+.img-size-small {
+  width: 40px;
+  height: 40px;
+}
+
+.vertical-menu {
+  width: 200px;
+}
+
+.vertical-menu a {
+  background-color: $white1;
+  color: $black;
+  display: block;
+  text-decoration: none;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a {
+  &:hover{
+    background-color: $white2;
+  }
+}
+
+.vertical-menu a.active {
+  background-color: $green1;
+  color: $white;
+}
+
+.cssmenu {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  line-height: 1;
+  float: left;
+}
+
+.cssmenu ul,
+.cssmenu ul li,
+.cssmenu ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cssmenu ul {
+  position: relative;
+  z-index: 597;
+  float: left;
+}
+
+.cssmenu ul li {
+  float: left;
+  min-height: 1px;
+  line-height: 1em;
+  vertical-align: middle;
+  position: relative;
+}
+
+.cssmenu ul li.hover,
+.cssmenu ul li:hover {
+  position: relative;
+  z-index: 599;
+  cursor: default;
+}
+
+.cssmenu ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  z-index: 598;
+  width: 100%;
+}
+
+.cssmenu ul ul li {
+  float: none;
+}
+
+.cssmenu ul ul ul {
+  top: -2px;
+  right: 0;
+}
+
+.cssmenu ul li:hover > ul {
+  visibility: visible;
+}
+
+.cssmenu ul ul {
+  top: 1px;
+  left: 99%;
+}
+
+.cssmenu ul li {
+  float: none;
+}
+.cssmenu ul ul {
+  margin-top: 1px;
+}
+
+.cssmenu ul ul li {
+  font-weight: normal;
+}
+
+.cssmenu {
+  width: 200px;
+  background: $black-light;
+  font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
+  zoom: 1;
+  font-size: 14px;
+}
+
+.cssmenu:before {
+  content: '';
+  display: block;
+}
+
+.cssmenu:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.cssmenu a {
+  display: block;
+  padding: 15px 20px;
+  color: $white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.cssmenu > ul {
+  width: 200px;
+}
+
+.cssmenu ul ul {
+  width: 200px;
+}
+
+.cssmenu > ul > li > a {
+  border-right: 4px solid $blue;
+  color: $white;
+}
+
+.cssmenu > ul > li > a:hover {
+  color: $white;
+}
+
+.cssmenu > ul > li.active a {
+  background: $blue;
+}
+
+.cssmenu > ul > li a:hover,
+.cssmenu > ul > li:hover a {
+  background: $blue;
+}
+
+.cssmenu li {
+  position: relative;
+}
+
+.cssmenu ul li.has-sub > a:after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -6px;
+}
+
+.cssmenu ul ul li.first {
+  -webkit-border-radius: 0 3px 0 0;
+  -moz-border-radius: 0 3px 0 0;
+  border-radius: 0 3px 0 0;
+}
+
+.cssmenu ul ul li.last {
+  -webkit-border-radius: 0 0 3px 0;
+  -moz-border-radius: 0 0 3px 0;
+  border-radius: 0 0 3px 0;
+  border-bottom: 0;
+}
+
+.cssmenu ul ul {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.cssmenu ul ul {
+  border: 1px solid $blue2;
+}
+
+.cssmenu ul ul a {
+  font-size: 14px;
+  color: $white;
+}
+
+.cssmenu ul ul a:hover {
+  color: $white;
+}
+
+.cssmenu ul ul li {
+  border-bottom: 1px solid $blue2;
+}
+
+.cssmenu ul ul li:hover > a {
+  background: $blue3;
+  color: $white;
+}
+
+.cssmenu.align-right > ul > li > a {
+  border-left: 4px solid $blue;
+  border-right: none;
+}
+
+.cssmenu.align-right {
+  float: right;
+}
+
+.cssmenu.align-right li {
+  text-align: right;
+}
+
+.cssmenu.align-right ul li.has-sub > a:before {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  margin-top: -6px;
+}
+
+.cssmenu.align-right ul li.has-sub > a:after {
+  content: none;
+}
+
+.cssmenu.align-right ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  z-index: 598;
+  width: 100%;
+}
+
+.cssmenu.align-right ul ul li.first {
+  -webkit-border-radius: 3px 0 0 0;
+  -moz-border-radius: 3px 0 0 0;
+  border-radius: 3px 0 0 0;
+}
+
+.cssmenu.align-right ul ul li.last {
+  -webkit-border-radius: 0 0 0 3px;
+  -moz-border-radius: 0 0 0 3px;
+  border-radius: 0 0 0 3px;
+}
+
+.cssmenu.align-right ul ul {
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+.row .col-md-9 {
+  width: 600px;
+  margin-left: 180px;
+  margin-top: 20px;
+}
+
+.row .col-md-9 .categorySelect {
+  size: 200px;
+}
+
+.row .col-md-9 .course_id {
+  width: 570px;
+  height: 35px;
+}
+
+.row .col-md-9 .category_id {
+  width: 100%;
+  height: 35px;
+}
+.answer {
+  list-style: none;
+  font-style: none;
+
+  label {
+    font-weight: 100;
+  }
+}
+
+.activities {
+  width: 60%;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  clear: both;
+  position: relative;
+  top: -270px;
+  left: 250px;
+  
+  ul {
+    list-style: none;
+
+    li{
+      border-bottom: 1px solid $gray;
+
+      .lesson {
+        font-size: 1.32em;
+        font-weight: bold;
+        padding-right: 20px;
+        padding-left: 10px;
+
+        a {
+          color: $gray-black;
+          text-decoration: none;
+
+          &:hover {
+            color: $black-light;
+          }
+        }
+      }
+
+      .created {
+        margin-right: 10px;
+        margin-left: 10px;
+        width: 500px;
+        border:1px solid $blue5;
+        font-style: italic;
+        color: $black-light;
+        padding-right: 20px;
+        background-color: $blue2;
+        color: $white;
+      }
+
+      .result {
+        display: inline-block;
+        border-radius: 5px;
+        color: $white;
+        font-weight: 700;
+        padding: 0 5px;
+        margin: 2px 0 2px 30px;
+      }
+
+      .true {
+        background: $green2;
+      }
+
+      .false {
+        background: $red-brick;
+      }
+
+      .unfinished {
+        background: $blue3;
+      }
+    }
+  }
+}
+
+.result {
+  display: inline-block;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 500;
+  padding: 0 5px;
+}
+
+.correct {
+  background: $green2 !important;
+}
+
+.uncorrect {
+  background: $red-brick !important;
+}
+
+.bold-style {
+  font-weight: bold !important;
+  color: $green3;
+}
+
+.img-medium {
+  img {
+    max-width: 150px;
+    height: auto;
+  }
+}
+
+.chooseCategory {
+  margin-top: 80px;
+}
+
+.category_progress {
+  color: $white;
+  background-color: $gray1;
+  padding: 10px;
+}
+
+.users {
+  margin-top: 20px;
+}
+
+.choose-users {
+  a {
+    font-weight: 700;
+    padding: 0 10px;
+    font-size: 1.5em;
+  }
+}
+
+.clockdiv {
+  font-family: sans-serif;
+  color: $white;
+  display: inline-block;
+  font-size: 20px;
+  position: fixed;
+  right: 0;
+}
+
+.clockdiv > div {
+  padding: 10px;
+  border-radius: 3px;
+  background: $blue4;
+  display: inline-block;
+}
+
+.clockdiv div > span {
+  padding: 15px;
+  border-radius: 3px;
+  background: $blue5;
+  display: inline-block;
+}
+
+.smalltext {
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}
+
+.table {
+  margin-top: 20px;
+
+  th {
+    background-color: $white4;
+  }
+}
+
+.cate {
+  padding: 10px;
+  margin: 5px 0;
+  overflow: hidden;
+  background-color: $white2;
+  border-radius: 25px;
+
+  p {
+    text-align: justify;
+    font-size: 1.5em;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 8px 0 $black2, 0 6px 20px 0 $black3;
+  }
+}
+
+.modal-body {
+  text-align: left;
+}
+
+.margin-top-5 {
+  display: inline-block;
+}
+
+.close-answer {
+  font-weight: 300;
+  color: $red-fresh;
+  float: right;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.add_question {
+  width: 100%;
+}
+
+.f-right {
+  float: right;
+}
+
+tr:nth-child(even) {
+  background-color: $white3;
+}
+
+.google_logo{
+  margin-left: 10px;
+  position: relative;
+  top: 10px;
+}
+
+.glyphicon {
+  color: $green2;
+}

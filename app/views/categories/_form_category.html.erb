@@ -1,0 +1,17 @@
+<%= form_for @category do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, class: "form-control" %>
+
+  <%= f.label :image %>
+  <div class="img-medium">
+  <%= image_tag @category.image.url if @category.image? %>
+  </div>
+  <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png",
+  class: "form-control" %>
+
+  <%= f.submit :submit, class: "btn btn-primary" %>
+<% end %>
