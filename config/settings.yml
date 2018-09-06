@@ -4,3 +4,6 @@ category:
 image:
   size: 400
   capacity: 5
+product:
+  length:
+    max_name: 200
