@@ -23,8 +23,11 @@ gem "figaro"
 gem "i18n-js"
 gem "jquery-rails"
 gem "imagemagick-identify", "~> 0.0.1"
+gem "jquery-rails"
 gem "kaminari"
+gem "mini_magick", "4.7.0"
 gem "mysql2", "~> 0.5.2"
+
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
