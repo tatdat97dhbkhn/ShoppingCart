@@ -8,7 +8,7 @@
             <th>Description</th>
             <th>Image</th>
             <th>Edit</th>
-            <th>Delete</th>
+            <th>Remove</th>
           </tr>
       </thead>
       <tbody>
@@ -23,7 +23,7 @@
               <%= link_to "Edit", edit_category_path(category) %>
             </td>
             <td>
-              <%= link_to "Delete", category,
+              <%= link_to "Remove", category_path(id: category.id),
                 method: :delete, data: {confirm: "Sure"} %>
             </td>
           </tr>

@@ -39,4 +39,3 @@ config/environments/*.local.yml
 # Ignore application configuration
 /config/application.yml
 /assets/stylesheets/*
-public/uploads/*

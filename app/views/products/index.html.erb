@@ -10,7 +10,7 @@
             <th>Image</th>
             <th>Price</th>
             <th>Edit</th>
-            <th>Delete</th>
+            <th>Remove</th>
           </tr>
       </thead>
       <tbody>
@@ -27,7 +27,7 @@
               <%= link_to "Edit", edit_product_path(product) %>
             </td>
             <td>
-              <%= link_to "Delete", product,
+              <%= link_to "Remove", product_path(id: product.id),
                 method: :delete, data: {confirm: "Sure"} %>
             </td>
           </tr>

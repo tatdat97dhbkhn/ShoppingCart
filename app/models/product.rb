@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :category
-  has_many :bill_details, dependent: :destroy
+  has_many :bill_details
 
   PRODUCT_ATTRS = %w(name category_id description image price).freeze
   mount_uploader :image, PictureUploader
@@ -9,6 +9,13 @@ class Product < ApplicationRecord
     length: {maximum: Settings.product.length.max_name}
   validates :price, presence: true
   validate  :image_size
+
+  scope :used, ->{where deleted: false}
+
+  def destroy_actions
+    update_attributes deleted: true
+    "Remove successfull"
+  end
 
   private
   def image_size
