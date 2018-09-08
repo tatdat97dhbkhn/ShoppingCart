@@ -1,0 +1,90 @@
+<div class="container">
+	<table id="cart" class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th style="width:42%">Sản phẩm</th>
+        <th style="width:12%">Giá</th>
+        <th style="width:7%">Số lượng</th>
+        <th style="width:7%">Kho</th>
+        <th style="width:22%" class="text-center">Thành tiền</th>
+        <th style="width:10%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% total = 0 %>
+      <% @bill_details.each do |bill_detail| %>
+        <tr>
+          <td data-th="Product">
+            <div class="row">
+              <div class="col-sm-4 hidden-xs">
+                <%= image_tag bill_detail.product.image.url,
+                  class: "img-responsive" %>
+              </div>
+              <div class="col-sm-8">
+                <strong class="nomargin">
+                  <%= bill_detail.product.name %>
+                </strong>
+                <br>
+                <small>
+                  <%= bill_detail.product.description %>
+                </small>
+              </div>
+            </div>
+          </td>
+          <td data-th="Price">
+            <%= number_to_currency bill_detail.product.price %> VND
+          </td>
+          <%= form_tag "/bills/#{bill_detail.product.id}", method: :get do %>
+            <td data-th="Quantity">
+              <%= number_field_tag 'quantity', params[:quantity],
+                {class: "form-control text-center", min: 1,
+                  value: bill_detail.quantity, max: bill_detail.product.quantity} %>
+            </td>
+            <td data-th="Subtotal" class="text-center">
+              <%= bill_detail.product.quantity %>
+            </td>
+            <% subtotal = bill_detail.quantity*bill_detail.product.price %>
+            <% total += subtotal %>
+            <td data-th="Subtotal" class="text-center">
+              <%= number_to_currency subtotal %> VND
+            </td>
+            <td class="actions" data-th="">
+              <%= button_tag(type: 'submit', class: "btn btn-info btn-sm") do %>
+                <i class="glyphicon glyphicon-refresh"></i>
+              <% end %>
+              <%= link_to bill_detail, class: "btn btn-danger btn-sm",
+                method: :delete, data: {confirm: "Sure"} do %>
+                <i class="glyphicon glyphicon-trash"></i>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="visible-xs">
+        <td class="text-center">
+          <strong>Total <%= number_to_currency total %> VND</strong>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to root_path, class: "btn btn-warning" do %>
+            <i class="glyphicon glyphicon-chevron-left"></i> Continue Shopping
+          <% end %>
+        </td>
+        <td colspan="2" class="hidden-xs"></td>
+        <td class="hidden-xs text-center">
+            <strong>Total <%= number_to_currency total %> VND</strong>
+        </td>
+        <td>
+          <% if @bill_details.count > 0 %>
+            <%= link_to payment_path, class: "btn btn-success btn-block" do %>
+              Checkout <i class="glyphicon glyphicon-chevron-right"></i>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: %i(edit update destroy)
+  before_action :find_product, only: %i(show edit update destroy)
   def new
     @product = Product.new
   end
@@ -16,7 +16,15 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.used.page(params[:page]).per_page 10
+    @products = Product.availables.page(params[:page]).per_page 10
+  end
+
+  def show
+    @category_product = Product.cate_pro(@product.category_id).last 5
+  end
+
+  def filter_product
+    @products = Product.cate_pro(params[:id]).page(params[:page]).per_page 10
   end
 
   def edit; end

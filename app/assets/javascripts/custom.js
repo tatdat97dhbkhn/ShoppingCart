@@ -1,7 +1,17 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   setTimeout(function(){
     $('#flash').remove();
   }, 3000);
+
+  $('.payment_method_bacs').click(function(){
+    $('#bacs').css("display","block");
+    $('#cheque').css("display","none");
+  });
+
+  $('.payment_method_cheque').click(function(){
+    $('#bacs').css("display","none");
+    $('#cheque').css("display","block");
+  });
 });
 
 $(document).on('turbolinks:load', function() {
@@ -12,3 +22,4 @@ $(document).on('turbolinks:load', function() {
     }
   });
 });
+
