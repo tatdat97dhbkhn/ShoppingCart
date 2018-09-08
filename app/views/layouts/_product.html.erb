@@ -1,0 +1,25 @@
+<% @products.each_with_index do |product, index| %>
+  <div class="col-sm-3">
+    <div class="single-item">
+      <div class="single-item-header">
+        <%= link_to product_path(id: product.id) do %>
+          <%= image_tag "#{product.image.url}" %>
+        <% end %>
+      </div>
+        <p class="single-item-title"><%= product.name %></p>
+        <%= number_to_currency(product.price) %> VND
+      <div class="cart_detail">
+        <%= link_to "/bills/#{product.id}", class: "cart_detail" do %>
+          <i class="glyphicon glyphicon-shopping-cart"></i>
+        <% end %>
+        <%= link_to product_path(id: product.id), class: "cart_detail" do %>
+          Chi tiết <i class="glyphicon glyphicon-menu-right"></i>
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <% if index%4 == 3 %>
+    <div class='col-sm-12' style='margin-bottom:20px;'></div>
+  <% end %>
+<% end %>

@@ -58,7 +58,9 @@
           <% end %>
           <ul class="dropdown-menu">
             <% @categories.each do |category| %>
-              <li><%= link_to "#{category.name}", "#" %></li>
+              <li>
+                <%= link_to "#{category.name}", "/filter_product/#{category.id}" %>
+              </li>
             <% end %>
           </ul>
         </li>
@@ -91,11 +93,37 @@
           <%= link_to "#", class: "dropdown-toggle",
             data: {toggle: "dropdown"} do %>
             <i class="glyphicon glyphicon-shopping-cart"></i>
-            Giỏ hàng ()
+            Giỏ hàng (<%= @bill_details.count %>)
             <span class="caret"></span>
           <% end %>
-          <ul class="dropdown-menu">
-            <li><a href="#">Page 1-1</a></li>
+          <ul class="dropdown-menu" style="overflow: scroll; height: auto;">
+            <% if @bill_details.count != 0 %>
+              <% total = 0 %>
+              <% @bill_details.each do |bill_detail| %>
+                <li style="padding: 10px;width: 200px;
+                  border-top: 1px solid #ddd;">
+                  <%= link_to product_path(id: bill_detail.product_id) do %>
+                    <%= image_tag "#{bill_detail.product.image.url}",
+                      style: "width:100px;height:50px;" %>
+                  <% end %>
+                  <%= link_to bill_detail, style: "float:right",
+                    method: :delete, data: {confirm: "Sure"} do %>
+                    <i class="glyphicon glyphicon-remove"></i>
+                  <% end %>
+                  <br>
+                  Số lượng: <%= bill_detail.quantity %><br>
+                  Price: <%= number_to_currency(bill_detail.product.price) %> VND
+                </li>
+                <% total += bill_detail.quantity*bill_detail.product.price %>
+              <% end %>
+              <li style="padding: 10px;width: 200px;">
+                Tổng tiền:<br><%= number_to_currency(total) %> VND
+              </li>
+              <li>
+                <%= link_to "Đặt hàng" , bill_details_path,
+                  style: "background-color:lightseagreen;" %>
+              </li>
+            <% end %>
           </ul>
         </li>
       </ul>

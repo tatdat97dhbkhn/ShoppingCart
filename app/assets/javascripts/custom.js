@@ -11,4 +11,14 @@ $(document).on('turbolinks:load', function() {
       alert("should be less than 5MB");
     }
   });
+  // $('#add_cart').click(function(){
+  //   var quantity = $('#number_quantity').val();
+  //   var product_id = $('#product_id').val();
+  //   var flash = confirm("Bạn có muốn thêm vào giỏ hàng?")
+  //   if (flash==true){
+  //     $.get('/bills/'+product_id+'/'+quantity, function(data){
+  //       location.reload();
+  //     });
+  //   }
+  // });
 });

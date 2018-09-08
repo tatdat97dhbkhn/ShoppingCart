@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.used.page(params[:page]).per_page 10
+    @categories = Category.availables.page(params[:page]).per_page 10
   end
 
   def edit; end
