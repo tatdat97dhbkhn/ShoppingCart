@@ -9,6 +9,7 @@
             <th>Description</th>
             <th>Image</th>
             <th>Price</th>
+            <th>Quantity</th>
             <th>Edit</th>
             <th>Remove</th>
           </tr>
@@ -23,6 +24,7 @@
               <%= image_tag product.image.url if product.image? %>
             </td>
             <td><%= product.price %> VND</td>
+            <td><%= product.quantity %></td>
             <td>
               <%= link_to "Edit", edit_product_path(product) %>
             </td>

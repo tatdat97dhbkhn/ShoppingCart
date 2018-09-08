@@ -8,7 +8,7 @@ class Category < ApplicationRecord
     length: {maximum: Settings.category.length.max_name}
   validate  :image_size
 
-  scope :used, ->{where deleted: false}
+  scope :availables, ->{where deleted: false}
 
   def destroy_actions
     update_attributes deleted: true
