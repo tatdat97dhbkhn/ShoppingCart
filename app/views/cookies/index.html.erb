@@ -12,38 +12,40 @@
     </thead>
     <tbody>
       <% total = 0 %>
-      <% @bill_details.each do |bill_detail| %>
+      <% @carts.each { %>
+        <% |k,v| %>
+        <% product = Product.find_by id: v[0] %>
         <tr>
           <td data-th="Product">
             <div class="row">
               <div class="col-sm-4 hidden-xs">
-                <%= image_tag bill_detail.product.image.url,
+                <%= image_tag product.image.url,
                   class: "img-responsive" %>
               </div>
               <div class="col-sm-8">
                 <strong class="nomargin">
-                  <%= bill_detail.product.name %>
+                  <%= product.name %>
                 </strong>
                 <br>
                 <small>
-                  <%= bill_detail.product.description %>
+                  <%= product.description %>
                 </small>
               </div>
             </div>
           </td>
           <td data-th="Price">
-            <%= number_to_currency bill_detail.product.price %> VND
+            <%= number_to_currency product.price %> VND
           </td>
-          <%= form_tag "/bills/#{bill_detail.product.id}", method: :get do %>
+          <%= form_tag add_to_cart_path(product.id), method: :get do %>
             <td data-th="Quantity">
               <%= number_field_tag 'quantity', params[:quantity],
                 {class: "form-control text-center", min: 1,
-                  value: bill_detail.quantity, max: bill_detail.product.quantity} %>
+                  value: v[1], max: product.quantity} %>
             </td>
             <td data-th="Subtotal" class="text-center">
-              <%= bill_detail.product.quantity %>
+              <%= product.quantity %>
             </td>
-            <% subtotal = bill_detail.quantity*bill_detail.product.price %>
+            <% subtotal = v[1]*product.price %>
             <% total += subtotal %>
             <td data-th="Subtotal" class="text-center">
               <%= number_to_currency subtotal %> VND
@@ -52,14 +54,14 @@
               <%= button_tag(type: 'submit', class: "btn btn-info btn-sm") do %>
                 <i class="glyphicon glyphicon-refresh"></i>
               <% end %>
-              <%= link_to bill_detail, class: "btn btn-danger btn-sm",
-                method: :delete, data: {confirm: "Sure"} do %>
-                <i class="glyphicon glyphicon-trash"></i>
-              <% end %>
-            </td>
-          <% end %>
+            <% end %>
+            <%= link_to delete_item_path(v[0]), class: "btn btn-danger btn-sm",
+              method: :delete, data: {confirm: "Sure"} do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+          </td>
         </tr>
-      <% end %>
+      <% } %>
     </tbody>
     <tfoot>
       <tr class="visible-xs">
@@ -78,7 +80,7 @@
             <strong>Total <%= number_to_currency total %> VND</strong>
         </td>
         <td>
-          <% if @bill_details.count > 0 %>
+          <% if @carts.count > 0 %>
             <%= link_to payment_path, class: "btn btn-success btn-block" do %>
               Checkout <i class="glyphicon glyphicon-chevron-right"></i>
             <% end %>

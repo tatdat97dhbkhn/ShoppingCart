@@ -6,11 +6,17 @@ $(document).on('turbolinks:load', function(){
   $('.payment_method_bacs').click(function(){
     $('#bacs').css("display","block");
     $('#cheque').css("display","none");
+    $.get('/update_payment/'+1,function(data){
+      
+    });
   });
 
   $('.payment_method_cheque').click(function(){
     $('#bacs').css("display","none");
     $('#cheque').css("display","block");
+    $.get('/update_payment/'+0,function(data){
+      
+    });
   });
 });
 

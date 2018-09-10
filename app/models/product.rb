@@ -12,7 +12,7 @@ class Product < ApplicationRecord
   validate  :image_size
 
   scope :availables, ->{where deleted: false}
-  scope :cate_pro, ->(id){where(category_id: id)}
+  scope :cate_pro, ->(id){where(category_id: id, deleted: false)}
   def destroy_actions
     update_attributes deleted: true
     "Remove successfull"

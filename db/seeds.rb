@@ -1,11 +1,3 @@
-Customer.create(
-
-)
-
-Bill.create(
-  customer_id: 1
-)
-
 categorys = [
   {
     name: "XE TAY GA"

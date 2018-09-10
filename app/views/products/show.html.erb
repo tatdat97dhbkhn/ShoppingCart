@@ -20,22 +20,24 @@
             </strong>
             <br>
           </div>
-          <%= form_tag "/bills/#{@product.id}", method: :get do %>
-            <div class="section" style="padding-bottom:20px;">
-              <h6 class="title-attr"><small>Bạn muốn mua?</small></h6>
-              <strong>
-                <%= number_field_tag 'quantity', params[:quantity],
-                  {min: 1, value: 1, max: @product.quantity} %> SP
-              </strong>
-            </div>
-            <div class="section" style="padding-bottom:20px;">
-              <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-                <i style="color:white;padding:10px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
-                  Add_To_Cart
-                </i>
-              <% end %>
-            </div>
-          <% end %>                       
+          <% if @product.quantity >= 1 %>
+            <%= form_tag add_to_cart_path(@product.id), method: :get do %>
+              <div class="section" style="padding-bottom:20px;">
+                <h6 class="title-attr"><small>Bạn muốn mua?</small></h6>
+                <strong>
+                  <%= number_field_tag 'quantity', params[:quantity],
+                    {min: 1, value: 1, max: @product.quantity} %> SP
+                </strong>
+              </div>
+              <div class="section" style="padding-bottom:20px;">
+                <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+                  <i style="color:white;padding:10px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                    Add_To_Cart
+                  </i>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>              
         </div>
       </div>
       <div class="col-xs-12">

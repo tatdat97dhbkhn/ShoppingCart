@@ -1,6 +1,6 @@
 <div class="container">
   <div id="content">
-    <%= form_tag payment_path, method: :post do %>
+    <%= form_for @customer do |f| %>
       <div class="row">
         <div class="col-sm-6">
           <div class="stepwizard">
@@ -24,21 +24,21 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label" for="card-holder-name">Your Email</label>
                       <div class="col-sm-9">
-                        <%= text_field_tag :email, nil, maxlength: 100,
+                        <%= f.text_field :email, maxlength: 100,
                           required: true, placeholder: "Enter Email", class: "form-control" %>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label" for="card-number">Name</label>
                       <div class="col-sm-9">
-                        <%= text_field_tag :name, nil, maxlength: 100,
+                        <%= f.text_field :name, maxlength: 100,
                           required: true, placeholder: "Enter Name", class: "form-control" %>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label" for="card-number">Primary Phone Number</label>
                       <div class="col-sm-9">
-                        <%= number_field_tag :phone, nil,
+                        <%= f.number_field :phone,
                           {class: "form-control", maxlength: 100,
                             placeholder: "Enter Primary Phone Number", required: true} %>
                       </div>
@@ -46,14 +46,14 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label" for="card-number">Address</label>
                       <div class="col-sm-9">
-                        <%= text_field_tag :address, nil, maxlength: 100,
+                        <%= f.text_field :address, maxlength: 100,
                           required: true, placeholder: "Enter Address", class: "form-control" %>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label" for="card-number">Note</label>
                       <div class="col-sm-9">
-                        <%= text_area_tag :note, nil,
+                        <%= f.text_area :note,
                           maxlength: 100, rows: 4, cols: 62 %>
                       </div>
                     </div>
@@ -86,7 +86,8 @@
             <div class="your-order-body">
               <ul class="payment_methods methods">
                 <li class="payment_method_bacs" style="list-style:none;">
-                  <%= radio_button_tag :payment_method, "COD", true,
+                  <input type="hidden" value="" id="bill_id">
+                  <%= radio_button_tag :payment_method, "1", true,
                     id: "payment_method_bacs", class: "input-radio" %>
                   <label for="payment_method_bacs">Thanh toán khi nhận hàng </label>
                   <div id="bacs" class="payment_box payment_method_bacs" style="display: block;">
@@ -94,7 +95,7 @@
                   </div>						
                 </li>
                 <li class="payment_method_cheque" style="list-style:none;">
-                  <%= radio_button_tag :payment_method, "ATM", false,
+                  <%= radio_button_tag :payment_method, "0", false,
                     id: "payment_method_cheque", class: "input-radio" %>
                   <label for="payment_method_cheque">Chuyển khoản </label>
                   <div id="cheque" class="payment_box payment_method_cheque" style="display: none;">
@@ -107,9 +108,7 @@
               </ul>
             </div>
             <div class="text-center">
-              <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-                Thanh toán
-              <% end %>
+              <%= f.submit "Thanh toán", class: "btn btn-primary" %>
             </div>
           </div>
         </div>
@@ -117,4 +116,5 @@
     <% end %>
   </div>
 </div>
-
+  
+  
