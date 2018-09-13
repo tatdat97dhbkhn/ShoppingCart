@@ -1,0 +1,40 @@
+<div class="container">
+  <table id="cart" class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th style="width:42%">Khách hàng</th>
+        <th style="width:24%">Mặt hàng</th>
+        <th style="width:14%">Tổng số tiền</th>
+        <th style="width:10%">Ngày thanh toán</th>
+        <th style="width:10%">Xem chi tiết</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td data-th="Name">
+            <%= customer.name %>
+          </td>
+          <td data-th="Product">
+            <ul>
+              <% customer.bill_details.each do |bill_detail| %>
+                <li><%= bill_detail.quantity %> <%= bill_detail.product.name %></li>
+              <% end %>
+            </ul>
+          </td>
+          <td data-th="Total">
+            <%= number_to_currency customer.bills.first.total %> VND
+          </td>
+          <td data-th="Date" class="text-center">
+            <%= customer.bills.first.updated_at %>
+          </td>
+          <td class="actions" data-th="">
+            <%= link_to customer do %>
+              <i class="glyphicon glyphicon-share-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

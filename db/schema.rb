@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_06_024732) do
+ActiveRecord::Schema.define(version: 2018_09_10_064931) do
 
   create_table "bill_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "bill_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_024732) do
     t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_024732) do
     t.boolean "deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantity"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

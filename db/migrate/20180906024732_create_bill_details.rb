@@ -5,7 +5,7 @@ class CreateBillDetails < ActiveRecord::Migration[5.2]
       t.references :product, foreign_key: true
       t.integer :quantity
       t.float :price
-
+      
       t.timestamps
     end
   end

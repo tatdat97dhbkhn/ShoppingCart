@@ -58,7 +58,9 @@
           <% end %>
           <ul class="dropdown-menu">
             <% @categories.each do |category| %>
-              <li><%= link_to "#{category.name}", "#" %></li>
+              <li>
+                <%= link_to "#{category.name}", filter_product_path(category.id) %>
+              </li>
             <% end %>
           </ul>
         </li>
@@ -84,18 +86,46 @@
             <li><%= link_to "Thêm sản phẩm", new_product_path %></li>
           </ul>
         </li>
-        <li><%= link_to "Liên hệ", "#" %></li>
+        <li><%= link_to "Lịch sử mua hàng", customers_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right ">
         <li class="dropdown">
           <%= link_to "#", class: "dropdown-toggle",
             data: {toggle: "dropdown"} do %>
             <i class="glyphicon glyphicon-shopping-cart"></i>
-            Giỏ hàng ()
+            Giỏ hàng (<%= @carts.count %>)
             <span class="caret"></span>
           <% end %>
-          <ul class="dropdown-menu">
-            <li><a href="#">Page 1-1</a></li>
+          <ul class="dropdown-menu" style="overflow: scroll; height: auto;">
+            <% if @carts.count > 0 %>
+              <% total = 0 %>
+              <% @carts.each { %>
+                <% |k,v| %>
+                <% product = Product.find_by id: v[0] %>
+                <li style="padding: 10px;width: 200px;
+                  border-top: 1px solid #ddd;">
+                  <%= link_to product_path(id: v[0]) do %>
+                    <%= image_tag "#{product.image.url}",
+                      style: "width:100px;height:50px;" %>
+                  <% end %>
+                  <%= link_to delete_item_path(v[0]), style: "float:right",
+                    method: :delete, data: {confirm: "Sure"} do %>
+                    <i class="glyphicon glyphicon-remove"></i>
+                  <% end %>
+                  <br>
+                  Số lượng: <%= v[1] %><br>
+                  Price: <%= number_to_currency(product.price) %> VND
+                </li>
+                <% total += v[1]*product.price %>
+              <% } %>
+              <li style="padding: 10px;width: 200px;">
+                Tổng tiền:<br><%= number_to_currency(total) %> VND
+              </li>
+              <li>
+                <%= link_to "Đặt hàng" , list_carts_path,
+                  style: "background-color:lightseagreen;" %>
+              </li>
+            <% end %>
           </ul>
         </li>
       </ul>

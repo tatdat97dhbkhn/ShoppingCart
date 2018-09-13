@@ -1,0 +1,104 @@
+<div class="container">
+  <div id="content">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="stepwizard">
+          <div class="stepwizard-row setup-panel">
+            <div class="stepwizard-step">
+              <a href="#" type="button" class="btn btn-primary btn-circle" id="ProfileSetup-step-2">
+                <span class="glyphicon glyphicon-user"></span>
+              </a>
+              <p>Infomation Customer</p>
+            </div>
+          </div>
+        </div>
+        <div class="row setup-content" id="ProfileSetup-step">
+          <div class="col-xs-12">
+            <div class="col-md-12">
+              <br/>
+              <div class="form-horizontal">
+                <fieldset>
+                  <br/>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="card-holder-name">Email</label>
+                    <div class="col-sm-9">
+                      <%= @customer.email %>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="card-number">Name</label>
+                    <div class="col-sm-9">
+                      <%= @customer.name %>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="card-number">Primary Phone Number</label>
+                    <div class="col-sm-9">
+                      <%= @customer.phone %>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="card-number">Address</label>
+                    <div class="col-sm-9">
+                      <%= @customer.address %>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="card-number">Note</label>
+                    <div class="col-sm-9">
+                      <%= @customer.note %>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="your-order">
+          <div class="your-order-head"><h5>Đơn hàng của <%= @customer.name %></h5></div>
+          <div class="your-order-body" style="padding: 0px 10px">
+            <div class="your-order-item">
+              <div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="your-order-item">
+              <div class="pull-left"><p class="your-order-f18">Tổng tiền:</p></div>
+              <div class="pull-right">
+                <h5 class="color-black">
+                  <%= number_to_currency @customer.bills.first.total %> VND
+                </h5>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="your-order-head"><h5>Hình thức thanh toán</h5></div>
+          <div class="your-order-body">
+            <ul class="payment_methods methods">
+              <% if @customer.bills.first.payment == Bill::TRANSFER %>
+                <li class="payment_method_bacs" style="list-style:none;">
+                  <label for="payment_method_bacs">Thanh toán khi nhận hàng </label>
+                  <div id="bacs" class="payment_box payment_method_bacs">
+                    Cửa hàng đã gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng
+                  </div>						
+                </li>
+              <% else %>
+                <li class="payment_method_cheque" style="list-style:none;">
+                  <label for="payment_method_cheque">Chuyển khoản </label>
+                  <div id="cheque" class="payment_box payment_method_cheque">
+                    Bạn đã chuyển tiền đến tài khoản:
+                    <br>- Số tài khoản: 123 456 789
+                    <br>- Chủ TK: Phạm Tất Đạt
+                    <br>- Ngân hàng ViettinBank, Chi nhánh Hà Nội
+                  </div>						
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

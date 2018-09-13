@@ -1,0 +1,118 @@
+<div class="container">
+  <div id="content">
+    <%= form_for @customer do |f| %>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="stepwizard">
+            <div class="stepwizard-row setup-panel">
+              <div class="stepwizard-step">
+                <a href="#" type="button" class="btn btn-primary btn-circle" id="ProfileSetup-step-2">
+                  <span class="glyphicon glyphicon-user"></span>
+                </a>
+                <p>Infomation Customer</p>
+              </div>
+            </div>
+          </div>
+          <div class="row setup-content" id="ProfileSetup-step">
+            <div class="col-xs-12">
+              <div class="col-md-12">
+                <br/>
+                <div class="form-horizontal">
+                  <fieldset>
+                    <legend>Enter Your Information</legend>
+                    <br/>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label" for="card-holder-name">Your Email</label>
+                      <div class="col-sm-9">
+                        <%= f.text_field :email, maxlength: 100,
+                          required: true, placeholder: "Enter Email", class: "form-control" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label" for="card-number">Name</label>
+                      <div class="col-sm-9">
+                        <%= f.text_field :name, maxlength: 100,
+                          required: true, placeholder: "Enter Name", class: "form-control" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label" for="card-number">Primary Phone Number</label>
+                      <div class="col-sm-9">
+                        <%= f.number_field :phone,
+                          {class: "form-control", maxlength: 100,
+                            placeholder: "Enter Primary Phone Number", required: true} %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label" for="card-number">Address</label>
+                      <div class="col-sm-9">
+                        <%= f.text_field :address, maxlength: 100,
+                          required: true, placeholder: "Enter Address", class: "form-control" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label" for="card-number">Note</label>
+                      <div class="col-sm-9">
+                        <%= f.text_area :note,
+                          maxlength: 100, rows: 4, cols: 62 %>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="your-order">
+            <div class="your-order-head"><h5>Đơn hàng của bạn</h5></div>
+            <div class="your-order-body" style="padding: 0px 10px">
+              <div class="your-order-item">
+                <div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="your-order-item">
+                <div class="pull-left"><p class="your-order-f18">Tổng tiền:</p></div>
+                <div class="pull-right">
+                  <h5 class="color-black">
+                    <%= number_to_currency @total %> VND
+                  </h5>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="your-order-head"><h5>Hình thức thanh toán</h5></div>
+            <div class="your-order-body">
+              <ul class="payment_methods methods">
+                <li class="payment_method_bacs" style="list-style:none;">
+                  <input type="hidden" value="" id="bill_id">
+                  <%= radio_button_tag :payment_method, "1", true,
+                    id: "payment_method_bacs", class: "input-radio" %>
+                  <label for="payment_method_bacs">Thanh toán khi nhận hàng </label>
+                  <div id="bacs" class="payment_box payment_method_bacs" style="display: block;">
+                    Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng
+                  </div>						
+                </li>
+                <li class="payment_method_cheque" style="list-style:none;">
+                  <%= radio_button_tag :payment_method, "0", false,
+                    id: "payment_method_cheque", class: "input-radio" %>
+                  <label for="payment_method_cheque">Chuyển khoản </label>
+                  <div id="cheque" class="payment_box payment_method_cheque" style="display: none;">
+                    Chuyển tiền đến tài khoản sau:
+                    <br>- Số tài khoản: 123 456 789
+                    <br>- Chủ TK: Phạm Tất Đạt
+                    <br>- Ngân hàng ViettinBank, Chi nhánh Hà Nội
+                  </div>						
+                </li>
+              </ul>
+            </div>
+            <div class="text-center">
+              <%= f.submit "Thanh toán", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

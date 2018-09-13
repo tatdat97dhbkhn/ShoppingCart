@@ -1,0 +1,22 @@
+<div class="container">
+  <div id="content" class="space-top-none">
+    <div class="main-content">
+      <div class="space60">&nbsp;</div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="beta-products-list">
+            <h4><%= Category.find_by(id: params[:id]).name %></h4>
+            <div class="beta-products-details">
+              <div class="clearfix"></div>
+            </div>
+            <div class="row">
+              <%= render "layouts/product" %>
+            </div>
+          </div>
+          <div class="space50">&nbsp;</div>
+        </div>
+      </div>
+    <%= paginate @products, theme: "twitter-bootstrap-3" %>  
+    </div>
+  </div>
+</div>
