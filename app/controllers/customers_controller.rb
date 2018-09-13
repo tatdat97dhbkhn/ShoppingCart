@@ -23,7 +23,6 @@ class CustomersController < ApplicationController
       @total += v[1]*product.price
       bill_detail = BillDetail.create(product_id: product.id,
         bill_id: @bill.id, quantity: v[1], price: v[1]*product.price)
-     
     }
     @bill.update_attributes total: @total
 

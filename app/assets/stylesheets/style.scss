@@ -2099,8 +2099,12 @@ font-size:35px;}
 .parent-active>a{background:#3a5c83; color:white;}
 .sub-menu li.parent-active, .children li.parent-active{background:#3a5c83; }
 .sub-menu li.parent-active>a, .children li.parent-active>a{color:white!important;}
-.tp-bullets.simplebullets.navbar{top:40%;
-width:100%; left:0px!important; bottom:0px!important; margin-left:0px!important;
+.tp-bullets.simplebullets.navbar{
+  top:40%;
+  width:100%;
+  left:0px!important;
+  bottom:0px!important;
+  margin-left:0px!important;
 }
 .tp-bullets.simplebullets.navbar{background:transparent!important; border:none;height:0px!important;display:none;}
 .tp-bullets.simplebullets.navbar .bullet{display:none;}
@@ -2665,6 +2669,7 @@ footer ul li {
   width: 100%;
   height: 35px;
 }
+
 .answer {
   list-style: none;
   font-style: none;
@@ -2916,31 +2921,32 @@ div.section > div > input {margin:0;padding-left:5px;font-size:10px;padding-righ
 .attr.active,.attr2.active{ border:1px solid orange;}
 
 @media (max-width: 426px) {
-    .container {margin-top:0px !important;}
-    .container > .row{padding:0 !important;}
-    .container > .row > .col-xs-12.col-sm-5{
-        padding-right:0 ;    
-    }
-    .container > .row > .col-xs-12.col-sm-9 > div > p{
-        padding-left:0 !important;
-        padding-right:0 !important;
-    }
-    .container > .row > .col-xs-12.col-sm-9 > div > ul{
-        padding-left:10px !important;
-        
-    }            
-    .section{width:104%;}
-    .menu-items{padding-left:0;}
+  .container {margin-top:0px !important;}
+  .container > .row{padding:0 !important;}
+  .container > .row > .col-xs-12.col-sm-5{
+    padding-right:0 ;    
+  }
+  .container > .row > .col-xs-12.col-sm-9 > div > p{
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  .container > .row > .col-xs-12.col-sm-9 > div > ul{
+    padding-left:10px !important;
+  }            
+  .section{width:104%;}
+  .menu-items{padding-left:0;}
 }
 
 .table>tbody>tr>td, .table>tfoot>tr>td{
   vertical-align: middle;
 }
+
 @media screen and (max-width: 600px) {
   table#cart tbody td .form-control{
   width:20%;
   display: inline !important;
 }
+
 .actions .btn{
   width:36%;
   margin:1.5em 0;
@@ -2949,6 +2955,7 @@ div.section > div > input {margin:0;padding-left:5px;font-size:10px;padding-righ
 .actions .btn-info{
   float:left;
 }
+
 .actions .btn-danger{
   float:right;
 }
@@ -2960,8 +2967,6 @@ table#cart tbody td:before {
   content: attr(data-th); font-weight: bold;
   display: inline-block; width: 8rem;
 }
-
-
 
 table#cart tfoot td{display:block; }
 table#cart tfoot td .btn{display:block;}
@@ -2994,11 +2999,11 @@ body{
   top: 14px;
   bottom: 0;
   position: absolute;
-  content: " ";
+  content: ' ';
   width: 100%;
   height: 1px;
   background-color: #ccc;
-  z-order: 0;
+  z-index: 0;
 
 }
 
@@ -3009,10 +3014,10 @@ body{
 }
 .btn
 {
-      border-radius: 0px;
+  border-radius: 0px;
 }
 .btn-circle {
-     width: 56px;
+  width: 56px;
   height: 56px;
   text-align: center;
   padding: 12px 0;
@@ -3022,11 +3027,11 @@ body{
   margin-top: -14px;
   border: solid 3px #ccc !important;
   opacity:1 !important;
-   -webkit-box-shadow:inset 0px 0px 0px 3px #fff !important; 
-   -moz-box-shadow:inset 0px 0px 0px 3px #fff !important;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #fff !important; 
+  -moz-box-shadow:inset 0px 0px 0px 3px #fff !important;
   -o-box-shadow:inset 0px 0px 0px 3px #fff !important;
- -ms-box-shadow:inset 0px 0px 0px 3px #fff !important; 
- box-shadow:inset 0px 0px 0px 3px #fff !important;
-    backgournd-color:#428bca;
+  -ms-box-shadow:inset 0px 0px 0px 3px #fff !important; 
+  box-shadow:inset 0px 0px 0px 3px #fff !important;
+  background-color:#428bca;
 }
 

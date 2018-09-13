@@ -17,13 +17,13 @@ class CookiesController < ApplicationController
               flash[:danger] = "Không đủ số lượng"
             elsif params[:quantity]
               @carts[params[:id]][1] = params[:quantity].to_i
-              flash[:success] = "Successfully add to cart not params[:quatity]..."
+              flash[:success] = "Successfully add to cart ..."
             else
               @carts[params[:id]][1] += 1
               flash[:success] = "Successfully add to cart..."
             end
           else
-            flash[:danger] = "Mặt hàng này hiện tại còn không đủ số lượng..."
+            flash[:danger] = "Hiện tại còn không đủ số lượng..."
           end
         else
           if !params[:quantity]
